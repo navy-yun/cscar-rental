@@ -35,17 +35,30 @@
 
 @layer components {
   .wrap {
-    @apply max-w-1500 mx-auto;
-  }
-
-  @media screen and (max-width: 1280px) {
-    .wrap {
-      @apply px-4;
-    }
+    @apply container mx-auto px-4 md:px-6 lg:px-8;
   }
 
   .vertical-text {
     writing-mode: vertical-rl;
     text-orientation: mixed;
+  }
+  
+  /* 모바일 최적화 스타일 */
+  @media screen and (max-width: 640px) {
+    body {
+      @apply text-sm;
+    }
+    
+    h1 {
+      @apply text-2xl;
+    }
+    
+    h2 {
+      @apply text-xl;
+    }
+    
+    h3 {
+      @apply text-lg;
+    }
   }
 }

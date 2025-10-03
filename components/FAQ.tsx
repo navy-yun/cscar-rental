@@ -122,10 +122,10 @@ export default function FAQ() {
   };
 
   return (
-    <section id="faq" className="py-16 md:py-20 bg-gray-50">
-      <div className="wrap">
+    <section id="faq" className="py-12 md:py-20 bg-gray-50">
+      <div className="container mx-auto px-4 md:px-6">
         {/* Hero Section with Background Image */}
-        <div className="relative h-64 md:h-80 overflow-hidden rounded-t-2xl">
+        <div className="relative h-48 md:h-80 overflow-hidden rounded-t-xl md:rounded-t-2xl bg-white">
           <Image
             src="/images/S_main_faq_01.png"
             alt="FAQ Background"
@@ -134,8 +134,8 @@ export default function FAQ() {
           />          
         </div>
 
-        {/* FAQ List Section */}
-        <div className="bg-white rounded-b-2xl p-16 border border-t-0 border-gray-200">
+        {/* FAQ List Section - 모바일에서 이미지 바로 아래 붙임 */}
+        <div className="bg-white rounded-b-xl md:rounded-b-2xl px-4 py-0 md:p-16 border border-t-0 border-gray-200 -mt-[1px]">
           <div className="space-y-0 border-t border-gray-300">
             {faqs.map((faq) => (
               <div
@@ -143,15 +143,15 @@ export default function FAQ() {
                 className="border-b border-gray-300"
               >
                 <button
-                  className="w-full px-4 md:px-6 py-5 md:py-6 text-left flex items-center justify-between hover:bg-gray-100 transition-colors"
+                  className="w-full px-3 md:px-6 py-4 md:py-6 text-left flex items-center justify-between hover:bg-gray-100 transition-colors"
                   onClick={() => toggleItem(faq.id)}
                 >
-                  <span className="flex items-center gap-4 text-base md:text-lg font-medium text-gray-800">
-                    <span className="text-xl font-bold text-gray-600">Q.</span>
+                  <span className="flex items-center gap-3 md:gap-4 text-sm md:text-lg font-medium text-gray-800">
+                    <span className="text-base md:text-xl font-bold text-gray-600">Q.</span>
                     {faq.question}
                   </span>
                   <svg
-                    className={`w-6 h-6 text-gray-400 transition-transform flex-shrink-0 ${
+                    className={`w-5 h-5 md:w-6 md:h-6 text-gray-400 transition-transform flex-shrink-0 ${
                       openItem === faq.id ? "rotate-45" : ""
                     }`}
                     fill="none"
@@ -172,9 +172,9 @@ export default function FAQ() {
                   }`}
                 >
                   <div className="overflow-hidden">
-                    <div className="bg-gray-100 mt-2 mx-4 md:mx-6 mb-4 rounded-lg">
-                      <div className="px-6 md:px-8 py-5 md:py-6">
-                        <p className="text-gray-600 text-base leading-relaxed whitespace-pre-line">
+                    <div className="bg-gray-100 mt-2 mx-3 md:mx-6 mb-3 md:mb-4 rounded-lg">
+                      <div className="px-4 md:px-8 py-4 md:py-6">
+                        <p className="text-gray-600 text-sm md:text-base leading-relaxed whitespace-pre-line">
                           {faq.answer}
                         </p>
                       </div>

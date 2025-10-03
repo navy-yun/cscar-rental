@@ -72,34 +72,136 @@ export default function QuickQuote() {
   };
 
   return (
-    <div className="fixed right-0 top-1/2 -translate-y-1/2 z-[1000]">
-      <div className={`flex transition-all duration-300 ease-in-out ${isOpen ? '' : ''}`}>
-        {/* 탭 버튼 - 항상 표시 */}
+    <>
+      {/* 모바일 버전 - 하단 고정 */}
+      <div className="md:hidden fixed bottom-0 left-0 right-0 z-[1000]">
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className={`
-            bg-gray-900 text-white px-2 py-2 text-sm font-medium
-            transition-all duration-300
-            ${isOpen ? '' : 'rounded-l-lg'}
-          `}
-          style={{ 
-            writingMode: 'vertical-rl',
-            textOrientation: 'mixed',
-            height: '120px',
-            letterSpacing: '0.15em'
-          }}
+          className="w-full bg-gray-900 text-white py-3 text-sm font-medium"
         >
-          빠른견적문의
+          빠른 견적 문의 {isOpen ? '▼' : '▲'}
         </button>
-
-        {/* 폼 컨테이너 - 토글 */}
         <div 
           className={`
             bg-white shadow-2xl transition-all duration-300 ease-in-out overflow-hidden
-            ${isOpen ? 'w-[220px] opacity-100' : 'w-0 opacity-0'}
+            ${isOpen ? 'h-[400px]' : 'h-0'}
           `}
         >
-          <div className="p-4 w-[220px]">
+          <div className="p-4 h-full overflow-y-auto">
+            <h3 className="text-base font-bold text-gray-900 mb-3">
+              실시간 무료견적 문의
+            </h3>
+            <form onSubmit={handleSubmit} className="space-y-3">
+              <div>
+                <input
+                  type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  placeholder="성명"
+                  className="w-full px-2 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent text-xs"
+                />
+              </div>
+              
+              <div>
+                <input
+                  type="tel"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  placeholder="전화번호(필수/숫자만 입력)"
+                  className="w-full px-2 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent text-xs"
+                />
+              </div>
+              
+              <div>
+                <input
+                  type="text"
+                  name="carName"
+                  value={formData.carName}
+                  onChange={handleChange}
+                  placeholder="차량명"
+                  className="w-full px-2 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent text-xs"
+                />
+              </div>
+              
+              <div>
+                <input
+                  type="text"
+                  name="region"
+                  value={formData.region}
+                  onChange={handleChange}
+                  placeholder="지역"
+                  className="w-full px-2 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent text-xs"
+                />
+              </div>
+
+              <div className="flex items-start gap-2 py-2">
+                <input
+                  type="checkbox"
+                  id="mobilePrivacyAgree"
+                  name="privacyAgree"
+                  checked={formData.privacyAgree}
+                  onChange={handleChange}
+                  className="mt-1 w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
+                />
+                <label htmlFor="mobilePrivacyAgree" className="text-xs text-gray-700">
+                  개인정보 수집에 동의 
+                  <a href="#" className="text-blue-600 hover:underline ml-1">[보기]</a>
+                </label>
+              </div>
+
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className={`w-full py-2.5 rounded-md transition-colors font-medium text-xs ${
+                  isSubmitting 
+                    ? 'bg-gray-400 cursor-not-allowed text-gray-200'
+                    : 'bg-gray-900 text-white hover:bg-gray-800'
+                }`}
+              >
+                {isSubmitting ? '처리 중...' : '무료 견적 서비스 받기'}
+              </button>
+              
+              <button
+                type="button"
+                onClick={handlePhoneCall}
+                className="w-full py-2 bg-yellow-500 text-gray-900 rounded-md hover:bg-yellow-600 transition-colors font-medium text-xs"
+              >
+                대표전화 1600-6951
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      {/* 데스크탑 버전 - 오른쪽 고정 */}
+      <div className="hidden md:block fixed right-0 top-1/2 -translate-y-1/2 z-[1000]">
+        <div className="flex">
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className={`
+              bg-gray-900 text-white px-2 py-2 text-sm font-medium
+              transition-all duration-300
+              ${isOpen ? '' : 'rounded-l-lg'}
+            `}
+            style={{ 
+              writingMode: 'vertical-rl',
+              textOrientation: 'mixed',
+              height: '120px',
+              letterSpacing: '0.15em'
+            }}
+          >
+            빠른견적문의
+          </button>
+
+          <div 
+            className={`
+              bg-white shadow-2xl transition-all duration-300 ease-in-out overflow-hidden
+              ${isOpen ? 'w-[220px] opacity-100' : 'w-0 opacity-0'}
+            `}
+          >
+            <div className="p-4 w-[220px]">
             <h3 className="text-base font-bold text-gray-900 mb-3">
               실시간 무료견적 문의
             </h3>
@@ -189,5 +291,6 @@ export default function QuickQuote() {
         </div>
       </div>
     </div>
+    </>
   );
 }

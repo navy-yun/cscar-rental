@@ -130,8 +130,8 @@ export default function HistorySection() {
   }, []);
 
   return (
-    <section className="bg-white relative overflow-hidden py-12 md:py-16" ref={sectionRef}>
-      <div className="wrap">
+    <section className="bg-white relative overflow-hidden py-8 md:py-16" ref={sectionRef}>
+      <div className="container mx-auto px-4 md:px-6">
         {/* Header with logo and description */}
         <div className="relative rounded-t-2xl overflow-hidden border border-b-0 border-gray-200">
           {/* Background image with dark overlay */}
@@ -146,23 +146,23 @@ export default function HistorySection() {
           </div>
           
           {/* Content */}
-          <div className="relative flex flex-col lg:flex-row p-16">
+          <div className="relative flex flex-col lg:flex-row p-8 md:p-16">
             {/* Left side - Logo */}
-            <div className="lg:w-1/2 flex flex-col items-center justify-center mb-8 lg:mb-0">
+            <div className="lg:w-1/2 flex flex-col items-center justify-center mb-6 lg:mb-0">
               <Image
                 src="/images/S_top_logo.png"
                 alt="씨에스카"
                 width={200}
                 height={60}
-                className="h-20 w-auto mb-4"
+                className="h-16 md:h-20 w-auto mb-3 md:mb-4"
               />
-              <p className="text-white text-sm">신차장기렌트 | 즉시출고 | 전국서비스</p>
+              <p className="text-white text-xs md:text-sm">신차장기렌트 | 즉시출고 | 전국서비스</p>
             </div>
             
             {/* Right side - Description */}
-            <div className="lg:w-1/2 flex items-center justify-end">
-              <div className="bg-white rounded-xl p-8 max-w-xl">
-                <p className="text-gray-700 leading-relaxed text-base mb-6">
+            <div className="lg:w-1/2 flex items-center lg:justify-end">
+              <div className="bg-white rounded-xl p-4 md:p-8 w-full lg:max-w-xl">
+                <p className="text-gray-700 leading-relaxed text-xs md:text-base mb-3 md:mb-6">
                   고객님의 도움으로 어느덧 설립 11주년이 지나,<br />
                   500,000명 이상의 고객님과 함께 하고 있습니다.<br />
                   지금 회사를 믿고 선택해주신<br />
@@ -173,8 +173,8 @@ export default function HistorySection() {
                   모든 임직원과 노력으로 보답드리겠습니다.
                 </p>
                 
-                <div className="pt-6 border-t border-gray-300">
-                  <p className="text-lg font-medium text-gray-800">주식회사 씨에스카</p>
+                <div className="pt-3 md:pt-6 border-t border-gray-300">
+                  <p className="text-sm md:text-lg font-medium text-gray-800">주식회사 씨에스카</p>
                 </div>
               </div>
             </div>
@@ -182,8 +182,8 @@ export default function HistorySection() {
         </div>
 
         {/* Timeline */}
-        <div className="bg-gray-50 rounded-b-2xl px-20 md:px-32 py-16 pb-20 border border-t-0 border-gray-200 relative overflow-hidden">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-20 relative">
+        <div className="bg-gray-50 rounded-b-2xl px-4 md:px-20 lg:px-32 py-8 md:py-16 pb-10 md:pb-20 border border-t-0 border-gray-200 relative overflow-hidden">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 md:gap-x-20 relative">
             {/* Left Column */}
             <div>
               {leftColumnData.map((item, index) => (
@@ -196,18 +196,19 @@ export default function HistorySection() {
                   }`}
                   style={{ 
                     transitionDelay: `${index * 100}ms`,
-                    marginBottom: index < leftColumnData.length - 1 ? '4rem' : '0'
+                    marginBottom: index < leftColumnData.length - 1 ? '3rem' : '0'
                   }}
+                  className="mb-12 md:mb-0"
                 >
                   <div className="flex items-start">
                     {/* Timeline line container */}
-                    <div className="relative mr-8" style={{ width: '12px' }}>
+                    <div className="relative mr-4 md:mr-8" style={{ width: '12px' }}>
                       {/* Point */}
-                      <div className="absolute top-2 left-0 w-3 h-3 bg-black rounded-full z-10"></div>
+                      <div className="absolute top-1 md:top-2 left-0 w-2 md:w-3 h-2 md:h-3 bg-black rounded-full z-10"></div>
                       {/* Line extending down */}
                       {index < leftColumnData.length - 1 && (
                         <div 
-                          className="absolute left-[5px] top-7 w-[2px] bg-gray-300"
+                          className="absolute left-[3px] md:left-[5px] top-[0.4rem] md:top-3 w-[2px] bg-gray-300"
                           style={{
                             height: `calc(${item.events.length * 2}rem + 7.5rem)`
                           }}
@@ -216,7 +217,7 @@ export default function HistorySection() {
                       {/* Last item line extends with space from bottom */}
                       {index === leftColumnData.length - 1 && (
                         <div 
-                          className="absolute left-[5px] top-7 w-[2px] bg-gray-300"
+                          className="absolute left-[3px] md:left-[5px] top-[0.4rem] md:top-3 w-[2px] bg-gray-300"
                           style={{
                             height: `calc(${item.events.length * 2}rem + 5rem)`
                           }}
@@ -224,10 +225,10 @@ export default function HistorySection() {
                       )}
                     </div>
                     <div className="flex-1 -mt-1">
-                      <h3 className="text-3xl font-bold mb-4 text-gray-900">{item.year}</h3>
-                      <ul className="space-y-3">
+                      <h3 className="text-xl md:text-3xl font-bold mb-3 md:mb-4 text-gray-900">{item.year}</h3>
+                      <ul className="space-y-2 md:space-y-3">
                         {item.events.map((event, eventIndex) => (
-                          <li key={eventIndex} className="text-gray-700 text-lg leading-relaxed">
+                          <li key={eventIndex} className="text-gray-700 text-xs md:text-lg leading-relaxed">
                             {event}
                           </li>
                         ))}
@@ -239,7 +240,7 @@ export default function HistorySection() {
             </div>
 
             {/* Right Column */}
-            <div>
+            <div className="mt-12 md:mt-0">
               {rightColumnData.map((item, index) => (
                 <div
                   key={item.year}
@@ -250,18 +251,19 @@ export default function HistorySection() {
                   }`}
                   style={{ 
                     transitionDelay: `${(index + 6) * 100}ms`,
-                    marginBottom: index < rightColumnData.length - 1 ? '4rem' : '0'
+                    marginBottom: index < rightColumnData.length - 1 ? '3rem' : '0'
                   }}
+                  className="mb-12 md:mb-0"
                 >
                   <div className="flex items-start">
                     {/* Timeline line container */}
-                    <div className="relative mr-8" style={{ width: '12px' }}>
+                    <div className="relative mr-4 md:mr-8" style={{ width: '12px' }}>
                       {/* Point */}
-                      <div className="absolute top-2 left-0 w-3 h-3 bg-black rounded-full z-10"></div>
+                      <div className="absolute top-1 md:top-2 left-0 w-2 md:w-3 h-2 md:h-3 bg-black rounded-full z-10"></div>
                       {/* Line extending down */}
                       {index < rightColumnData.length - 1 && (
                         <div 
-                          className="absolute left-[5px] top-7 w-[2px] bg-gray-300"
+                          className="absolute left-[3px] md:left-[5px] top-[0.4rem] md:top-3 w-[2px] bg-gray-300"
                           style={{
                             height: `calc(${item.events.length * 2}rem + 7.5rem)`
                           }}
@@ -269,19 +271,29 @@ export default function HistorySection() {
                       )}
                       {/* Last item line extends with space from bottom */}
                       {index === rightColumnData.length - 1 && (
-                        <div 
-                          className="absolute left-[5px] top-7 w-[2px] bg-gray-300"
-                          style={{
-                            height: `calc(${item.events.length * 2}rem + 22.5rem)`
-                          }}
-                        />
+                        <>
+                          {/* Mobile */}
+                          <div 
+                            className="absolute left-[3px] top-[0.4rem] w-[2px] bg-gray-300 md:hidden"
+                            style={{
+                              height: `calc(${item.events.length * 2}rem + 3rem)`
+                            }}
+                          />
+                          {/* Desktop */}
+                          <div 
+                            className="absolute left-[5px] top-3 w-[2px] bg-gray-300 hidden md:block"
+                            style={{
+                              height: `calc(${item.events.length * 2}rem + 22.5rem)`
+                            }}
+                          />
+                        </>
                       )}
                     </div>
                     <div className="flex-1 -mt-1">
-                      <h3 className="text-3xl font-bold mb-4 text-gray-900">{item.year}</h3>
-                      <ul className="space-y-3">
+                      <h3 className="text-xl md:text-3xl font-bold mb-3 md:mb-4 text-gray-900">{item.year}</h3>
+                      <ul className="space-y-2 md:space-y-3">
                         {item.events.map((event, eventIndex) => (
-                          <li key={eventIndex} className="text-gray-700 text-lg leading-relaxed">
+                          <li key={eventIndex} className="text-gray-700 text-xs md:text-lg leading-relaxed">
                             {event}
                           </li>
                         ))}

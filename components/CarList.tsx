@@ -96,18 +96,18 @@ export default function CarList() {
 
   return (
     <>
-    <section id="pricing" className="py-16 md:py-24 bg-white">
-      <div className="wrap">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+    <section id="pricing" className="py-12 md:py-24 bg-white">
+      <div className="container mx-auto px-4 md:px-6">
+        <div className="text-center mb-8 md:mb-12">
+          <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-3 md:mb-4">
             차량별 참고 가격
           </h2>
-          <p className="text-lg text-gray-600">
+          <p className="text-base md:text-lg text-gray-600 px-4">
             고객님의 상황에 맞춰 최저가 견적을 만들어드립니다.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
           {cars.map((car) => (
             <div
               key={car.id}
@@ -115,7 +115,7 @@ export default function CarList() {
             >
               {/* Car Image section with gray background */}
               <div className="p-2 pb-1">
-                <div className="relative h-48">
+                <div className="relative h-36 sm:h-40 md:h-48">
                   <Image
                     src={car.image}
                     alt={car.name}
@@ -127,25 +127,25 @@ export default function CarList() {
               
               {/* White background section starting from middle of car */}
               <div className="bg-white">
-                <div className="px-6 pb-0 pt-4">
+                <div className="px-4 md:px-6 pb-0 pt-3 md:pt-4">
                   {/* Car Name */}
-                  <h3 className="text-xl font-bold text-gray-900 mb-4">
+                  <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-3 md:mb-4">
                     {car.name}
                   </h3>
                   
                   {/* Price Table */}
-                  <div className="space-y-3 mb-6">
+                  <div className="space-y-2 md:space-y-3 mb-4 md:mb-6">
                     <div className="flex justify-between items-center">
-                      <span className="text-gray-600 text-sm">선납금 30%</span>
-                      <span className="text-lg font-bold">{car.prices.deposit30}원</span>
+                      <span className="text-gray-600 text-xs md:text-sm">선납금 30%</span>
+                      <span className="text-base md:text-lg font-bold">{car.prices.deposit30}원</span>
                     </div>
                     <div className="flex justify-between items-center">
-                      <span className="text-gray-600 text-sm">보증금 30%</span>
-                      <span className="text-lg font-bold">{car.prices.deposit30WithPrepay}원</span>
+                      <span className="text-gray-600 text-xs md:text-sm">보증금 30%</span>
+                      <span className="text-base md:text-lg font-bold">{car.prices.deposit30WithPrepay}원</span>
                     </div>
                     <div className="flex justify-between items-center">
-                      <span className="text-gray-600 text-sm">무보증</span>
-                      <span className="text-lg font-bold">{car.prices.noDeposit}원</span>
+                      <span className="text-gray-600 text-xs md:text-sm">무보증</span>
+                      <span className="text-base md:text-lg font-bold">{car.prices.noDeposit}원</span>
                     </div>
                   </div>
                 </div>
@@ -153,7 +153,7 @@ export default function CarList() {
                 {/* CTA Button - Full width without padding */}
                 <button 
                   onClick={handleQuoteClick}
-                  className="w-full py-3 bg-gray-900 text-white hover:bg-gray-800 transition-colors font-medium text-base"
+                  className="w-full py-2.5 md:py-3 bg-gray-900 text-white hover:bg-gray-800 transition-colors font-medium text-sm md:text-base"
                 >
                   실시간 견적 계산하기 →
                 </button>

@@ -70,20 +70,20 @@ export default function ProcessSection() {
   }, []);
 
   return (
-    <section id="process" className="relative py-20 bg-gradient-to-b from-gray-100 to-gray-200">
-      <div className="wrap" ref={sectionRef}>
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+    <section id="process" className="relative py-12 md:py-20 bg-gradient-to-b from-gray-100 to-gray-200">
+      <div className="container mx-auto px-4 md:px-6" ref={sectionRef}>
+        <div className="text-center mb-10 md:mb-16">
+          <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-3 md:mb-4">
             씨에스카가
             <br />
             최저가 계약이 가능한 이유!
           </h2>
-          <p className="text-lg text-gray-600">
+          <p className="text-base md:text-lg text-gray-600 px-4">
             신차 장기렌트&리스의 새로운 기준! 씨에스카만 가능합니다.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
           {processes.map((process, index) => (
             <div
               key={process.id}
@@ -99,8 +99,8 @@ export default function ProcessSection() {
               }}
             >
               {/* Card image with padding */}
-              <div className="p-4">
-                <div className="relative h-48 rounded-lg overflow-hidden">
+              <div className="p-3 md:p-4">
+                <div className="relative h-40 md:h-48 rounded-lg overflow-hidden">
                   <Image
                     src={process.image}
                     alt={process.title}
@@ -111,15 +111,15 @@ export default function ProcessSection() {
               </div>
 
               {/* Card content */}
-              <div className="p-6">
-                <h3 className="text-2xl font-bold text-white mb-4">
+              <div className="p-4 md:p-6">
+                <h3 className="text-xl md:text-2xl font-bold text-white mb-3 md:mb-4">
                   {process.title}
                 </h3>
-                <p className="text-gray-400 text-base mb-6 leading-relaxed whitespace-pre-line">
+                <p className="text-gray-400 text-sm md:text-base mb-4 md:mb-6 leading-relaxed whitespace-pre-line">
                   {process.description}
                 </p>
                 <button className="text-gray-400 hover:text-white transition-colors">
-                  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-6 h-6 md:w-8 md:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                   </svg>
                 </button>

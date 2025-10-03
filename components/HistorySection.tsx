@@ -122,8 +122,9 @@ export default function HistorySection() {
     }
 
     return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
+      const currentRef = sectionRef.current;
+      if (currentRef) {
+        observer.unobserve(currentRef);
       }
     };
   }, []);
@@ -168,7 +169,7 @@ export default function HistorySection() {
                   많은 분들께 머리숙여 감사의 말씀을 드립니다.<br />
                   <br />
                   고객님께서 차량을 이용하시는 동안<br />
-                  "처음과 같이 완결같은 모습"을 약속 드리며,<br />
+                  &ldquo;처음과 같이 완결같은 모습&rdquo;을 약속 드리며,<br />
                   모든 임직원과 노력으로 보답드리겠습니다.
                 </p>
                 

@@ -21,6 +21,7 @@ export async function submitQuote(quoteData: {
   try {
     const { data, error } = await supabase
       .from('quotes')
+      // @ts-expect-error Supabase type inference issue
       .insert([{
         ...quoteData,
         status: 'pending'

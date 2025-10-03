@@ -17,7 +17,6 @@ export default function QuoteModal({ isOpen, onClose }: QuoteModalProps) {
     privacyAgree: false,
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
   useEffect(() => {
     if (isOpen) {
@@ -45,7 +44,6 @@ export default function QuoteModal({ isOpen, onClose }: QuoteModalProps) {
     }
     
     setIsSubmitting(true);
-    setSubmitStatus('idle');
     
     try {
       const result = await submitQuote({
@@ -57,7 +55,6 @@ export default function QuoteModal({ isOpen, onClose }: QuoteModalProps) {
       });
       
       if (result.success) {
-        setSubmitStatus('success');
         alert(`${formData.name}님의 견적 요청이 성공적으로 접수되었습니다.\n담당자가 빠른 시일 내에 연락드리겠습니다.`);
         
         // 폼 초기화
@@ -71,14 +68,11 @@ export default function QuoteModal({ isOpen, onClose }: QuoteModalProps) {
         
         setTimeout(() => {
           onClose();
-          setSubmitStatus('idle');
         }, 500);
       } else {
-        setSubmitStatus('error');
         alert(result.error || '견적 요청 중 오류가 발생했습니다. 다시 시도해주세요.');
       }
-    } catch (error) {
-      setSubmitStatus('error');
+    } catch {
       alert('견적 요청 중 오류가 발생했습니다. 다시 시도해주세요.');
     } finally {
       setIsSubmitting(false);

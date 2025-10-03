@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 export default function AdminLoginPage() {
   const router = useRouter();
@@ -105,12 +106,12 @@ export default function AdminLoginPage() {
 
           {/* 홈으로 돌아가기 */}
           <div className="mt-6 text-center">
-            <a
+            <Link
               href="/"
               className="text-sm text-gray-600 hover:text-gray-900"
             >
               ← 홈페이지로 돌아가기
-            </a>
+            </Link>
           </div>
         </div>
       </div>

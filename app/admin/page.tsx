@@ -44,6 +44,7 @@ export default function AdminPage() {
     try {
       const { error } = await supabase
         .from('quotes')
+        // @ts-expect-error Supabase type inference issue
         .update({ status: newStatus })
         .eq('id', id);
 
@@ -127,6 +128,7 @@ export default function AdminPage() {
     if (isAuth) {
       fetchQuotes();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filter]);
 
   // 로그아웃 함수

@@ -3,7 +3,6 @@ import HeroSection from "@/components/HeroSection";
 import CarList from "@/components/CarList";
 import ProcessSection from "@/components/ProcessSection";
 import HistorySection from "@/components/HistorySection";
-import ServiceFeatures from "@/components/ServiceFeatures";
 import FAQ from "@/components/FAQ";
 import BannerSection from "@/components/BannerSection";
 import Footer from "@/components/Footer";

@@ -45,13 +45,12 @@ export default function Header() {
           </Link>
 
           <nav className="hidden md:flex items-center gap-8">
-            <a 
-              href="/" 
-              onClick={(e) => scrollToSection(e, '/')}
+            <button 
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
               className="text-white hover:text-gray-300 font-normal text-[17px] transition-colors cursor-pointer"
             >
               씨에스카
-            </a>
+            </button>
             <a 
               href="#pricing" 
               onClick={(e) => scrollToSection(e, '#pricing')}
@@ -107,13 +106,15 @@ export default function Header() {
         {mobileMenuOpen && (
           <div className="md:hidden py-4 border-t border-gray-800/30">
             <nav className="flex flex-col gap-4">
-              <a 
-                href="/" 
-                onClick={(e) => scrollToSection(e, '/')}
-                className="text-white hover:text-gray-300 font-normal text-base transition-colors cursor-pointer"
+              <button 
+                onClick={() => {
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                  setMobileMenuOpen(false);
+                }}
+                className="text-white hover:text-gray-300 font-normal text-base transition-colors cursor-pointer text-left"
               >
                 씨에스카
-              </a>
+              </button>
               <a 
                 href="#pricing" 
                 onClick={(e) => scrollToSection(e, '#pricing')}

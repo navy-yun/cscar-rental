@@ -189,7 +189,7 @@ export default function HistorySection() {
               {leftColumnData.map((item, index) => (
                 <div
                   key={item.year}
-                  className={`relative transform transition-all duration-700 ${
+                  className={`relative transform transition-all duration-700 mb-12 md:mb-0 ${
                     isVisible
                       ? "translate-y-0 opacity-100"
                       : "translate-y-10 opacity-0"
@@ -198,7 +198,6 @@ export default function HistorySection() {
                     transitionDelay: `${index * 100}ms`,
                     marginBottom: index < leftColumnData.length - 1 ? '3rem' : '0'
                   }}
-                  className="mb-12 md:mb-0"
                 >
                   <div className="flex items-start">
                     {/* Timeline line container */}
@@ -244,7 +243,7 @@ export default function HistorySection() {
               {rightColumnData.map((item, index) => (
                 <div
                   key={item.year}
-                  className={`relative transform transition-all duration-700 ${
+                  className={`relative transform transition-all duration-700 mb-12 md:mb-0 ${
                     isVisible
                       ? "translate-y-0 opacity-100"
                       : "translate-y-10 opacity-0"
@@ -253,7 +252,6 @@ export default function HistorySection() {
                     transitionDelay: `${(index + 6) * 100}ms`,
                     marginBottom: index < rightColumnData.length - 1 ? '3rem' : '0'
                   }}
-                  className="mb-12 md:mb-0"
                 >
                   <div className="flex items-start">
                     {/* Timeline line container */}

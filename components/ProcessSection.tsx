@@ -100,12 +100,12 @@ export default function ProcessSection() {
             >
               {/* Card image with padding */}
               <div className="p-3 md:p-4">
-                <div className="relative h-40 md:h-48 rounded-lg overflow-hidden">
+                <div className="relative h-40 md:h-48 rounded-lg overflow-hidden bg-gray-700">
                   <Image
                     src={process.image}
                     alt={process.title}
                     fill
-                    className="object-cover"
+                    className="object-contain"
                   />
                 </div>
               </div>
